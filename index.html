@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixelbay Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-panel">
+        <p class="eyebrow">Pixelbay</p>
+        <h1>Beautiful digital marketplace</h1>
+        <p>Browse premium assets, create an account, subscribe, and sell your work.</p>
+      </div>
+      <div class="account-widget">
+        <div>
+          <div id="accountStatus" class="badge">Guest</div>
+          <div id="subscriptionBadge" class="badge secondary">Not subscribed</div>
+          <div id="balanceBadge" class="badge secondary">Balance: $0.00</div>
+        </div>
+        <div class="account-actions">
+          <button type="button" id="signUpButton" class="ghost-button">Create account</button>
+          <button type="button" id="signInButton" class="ghost-button">Sign in</button>
+          <button type="button" id="signOutButton" class="ghost-button hidden">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="searchSection">
+        <h2>Marketplace search</h2>
+        <div class="search-bar">
+          <input id="searchInput" type="search" placeholder="Search marketplace files, art, themes..." />
+          <button type="button" id="clearSearchButton">Clear</button>
+        </div>
+        <div id="searchResults" class="gallery-grid">
+          <p class="empty-state">Search marketplace files or browse featured items below.</p>
+        </div>
+      </section>
+
+      <section class="section" id="categoriesSection">
+        <h2>Browse by category</h2>
+        <div id="categoryList" class="category-list"></div>
+      </section>
+
+      <section class="section" id="featuredCreatorsSection">
+        <h2>Featured creators</h2>
+        <div id="creatorGrid" class="creator-grid"></div>
+      </section>
+
+      <section class="section account-section" id="accountSection">
+        <div class="account-grid">
+          <div>
+            <h2>Account access</h2>
+            <p id="accountHint">Create an account to subscribe, upload, and sell items on Pixelbay.</p>
+            <p class="hint">Use the Create account or Sign in buttons above to switch forms below.</p>
+          </div>
+          <div>
+            <div class="auth-tabs" role="tablist" aria-label="Account actions">
+              <button type="button" class="auth-tab active" id="createAccountTab">Create account</button>
+              <button type="button" class="auth-tab" id="signInTab">Sign in</button>
+            </div>
+            <form id="signUpForm" class="signup-form">
+              <label>
+                Display name
+                <input id="userName" type="text" placeholder="Your display name" required />
+              </label>
+              <label>
+                Password
+                <input id="userPassword" type="password" placeholder="Create a password" required />
+              </label>
+              <button type="submit" id="signUpSubmit" class="primary-button">Create account</button>
+              <p class="hint">Your display name becomes your account nickname. Use it to sign in.</p>
+            </form>
+            <form id="signInForm" class="signup-form hidden">
+              <label>
+                Nickname
+                <input id="signInNickname" type="text" placeholder="Your nickname" required />
+              </label>
+              <label>
+                Password
+                <input id="signInPassword" type="password" placeholder="Your password" required />
+              </label>
+              <button type="submit" id="signInSubmit" class="primary-button">Sign in</button>
+              <p class="hint">Sign in with the nickname you created and your password.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="subscriptionSection">
+        <h2>Subscribe to upload</h2>
+        <div class="plans">
+          <article class="plan-card" data-plan="monthly">
+            <h3>Monthly</h3>
+            <div class="price">$2.99</div>
+            <p>One month subscription</p>
+            <button type="button" class="plan-button" id="monthlyButton">Subscribe monthly</button>
+          </article>
+          <article class="plan-card" data-plan="yearly">
+            <h3>Yearly</h3>
+            <div class="price">$13.99</div>
+            <p>One year subscription</p>
+            <button type="button" class="plan-button" id="yearlyButton">Subscribe yearly</button>
+          </article>
+        </div>
+        <p class="note">In this demo, subscription activation is simulated. No real payment is processed.</p>
+      </section>
+
+      <section class="section" id="uploadSection">
+        <h2>Upload item</h2>
+        <p id="uploadHint" class="hint">You must subscribe before uploading an item.</p>
+        <form id="uploadForm" class="upload-form">
+          <label>
+            Item Title
+            <input type="text" id="itemTitle" placeholder="Add a title" required />
+          </label>
+          <label>
+            Description
+            <textarea id="itemDescription" placeholder="Describe your digital asset"></textarea>
+          </label>
+          <label>
+            File
+            <input type="file" id="itemFile" accept="image/*,video/*,.zip,.pdf" />
+          </label>
+          <label>
+            Price
+            <input type="text" id="itemPrice" placeholder="$0.00 (optional)" />
+          </label>
+          <label>
+            File type
+            <select id="itemFileType">
+              <option value="">Auto detect</option>
+              <option value="Image">Image</option>
+              <option value="Template">Template</option>
+              <option value="Audio">Audio</option>
+              <option value="Vector">Vector</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <button type="button" id="uploadButton" class="primary-button" disabled>Upload item</button>
+        </form>
+      </section>
+
+      <section class="section" id="gallerySection">
+        <h2>Your uploads</h2>
+        <div id="gallery" class="gallery-grid">
+          <p class="empty-state">No uploads yet. Subscribe and upload your first digital product.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
